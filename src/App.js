@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import Dropzone from 'react-dropzone'
+import Dropzone from 'react-dropzone';
+import ajax from 'superagent';
+
 
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      files: []
+      files: [],
+      labels: []
     }
   }
 
@@ -15,6 +18,15 @@ class App extends Component {
     this.setState({
       files
     });
+    ajax.post('/upload')
+        .end((error, response) => {
+          if (!error && response) {
+            console.log(response);
+            this.setState({ labels: response.labels });
+          } else {
+            console.log('There was an error fetching from Google Vision API', error);
+          }
+        })
   }
 
   render() {

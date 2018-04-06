@@ -12,4 +12,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(process.env.PORT || 8080);
+app.post('/upload', function (req, res) {
+  res.send("Writing within the upload endpoint");
+});
+
+app.listen(8080);

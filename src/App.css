@@ -26,6 +26,10 @@ form {
   padding: 40px 40px 40px 40px;
 }
 
+#root > div > div {
+  width: 100%
+}
+
 #root > div > form > div.row.form-check > div > button {
   margin-right: 240px;
 }
