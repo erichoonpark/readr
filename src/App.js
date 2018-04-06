@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Dropzone from 'react-dropzone'
+
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = { files: [] }
+  }
+
+  onDrop(files) {
+    this.setState({
+      files
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src='https://media1.tenor.com/images/aa12acad78c918bb62fa41cf7af8cf75/tenor.gif?itemid=5087595' className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to Readr</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Dropzone onDrop={this.onDrop.bind(this)}>
+              <p>Drop your image here!</p>
+        </Dropzone>
+        <aside>
+          <h2>Dropped files</h2>
+          <ul>
+            {
+              this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+            }
+          </ul>
+        </aside>
       </div>
     );
   }

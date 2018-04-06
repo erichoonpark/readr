@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "express": "^4.16.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-dropzone": "^4.2.9",
     "react-scripts": "1.1.4",
     "reactstrap": "^5.0.0"
   },
