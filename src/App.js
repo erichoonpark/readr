@@ -6,7 +6,9 @@ import Dropzone from 'react-dropzone'
 class App extends Component {
   constructor() {
     super()
-    this.state = { files: [] }
+    this.state = {
+      files: []
+    }
   }
 
   onDrop(files) {
