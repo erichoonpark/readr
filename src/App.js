@@ -23,7 +23,7 @@ class App extends Component {
       files
     });
 
-    axios.post('/upload', files[0]).then(response => {
+    axios.post('/upload', formData).then(response => {
       console.log('FILES:' , files);
     })
   }
@@ -35,7 +35,7 @@ class App extends Component {
           <img src='https://media1.tenor.com/images/aa12acad78c918bb62fa41cf7af8cf75/tenor.gif?itemid=5087595' className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Readr</h1>
         </header>
-        <Dropzone onDrop={this.onDrop.bind(this)}>
+        <Dropzone onDrop={this.onDrop.bind(this)} name="image">
               <p>Drop your image here!</p>
         </Dropzone>
         <aside>

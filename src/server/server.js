@@ -2,6 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
 const app = express();
+const multer  = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+})
+const upload = multer({ dest: './uploads' });
 //TODO: Root relative which is problematic
 //const google = require('../helpers/googleVisionAPI.js');
 
@@ -11,9 +21,9 @@ app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:500
 
 
 
-app.post('/upload', (req, res) => {
+app.post('/upload', upload.single('image'),(req, res) => {
   // Send the vision API back
-  console.log("Within server.js:" , req.body);
+  console.log("Within server.js:", req);
   //google.visionAPI();
 });
 
