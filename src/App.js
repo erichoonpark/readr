@@ -20,8 +20,10 @@ class App extends Component {
     });
 
     ajax.post('/upload')
+    //Pass the image to the upload route
+        .send(files)
         .end((error, response) => {
-          console.log('Within Ajax post');
+          console.log('FILES:' , files);
           if (!error && response) {
             console.log(response);
             this.setState({ labels: response.labels });
