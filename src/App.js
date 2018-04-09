@@ -18,8 +18,10 @@ class App extends Component {
     this.setState({
       files
     });
+
     ajax.post('/upload')
         .end((error, response) => {
+          console.log('Within Ajax post');
           if (!error && response) {
             console.log(response);
             this.setState({ labels: response.labels });
