@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:500
 
 app.post('/upload', upload.single('image'),(req, res) => {
   // Send the vision API back
-  res.send(google.visionAPI(req.file.path));
+  google.visionAPI(req.file.path);
 });
 
 app.listen(8080);

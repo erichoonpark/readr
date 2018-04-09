@@ -11,7 +11,7 @@ let visionAPI = function(image) {
       const labels = [];
       results[0].labelAnnotations.forEach(function(element) {
         labels.push(element.description);
-      })
+      });
       return labels;
     })
 

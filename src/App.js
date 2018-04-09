@@ -21,7 +21,7 @@ class App extends Component {
     });
 
     axios.post('/upload', formData).then(response => {
-      console.log('FILES:' , files);
+      console.log('Response:' , response);
     })
   }
 

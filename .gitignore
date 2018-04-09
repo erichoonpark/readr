@@ -3,6 +3,9 @@
 # keys
 key.json
 
+# Sample images
+/uploads
+
 # dependencies
 /node_modules
 
