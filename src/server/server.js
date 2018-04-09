@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ dest: './uploads' });
 //TODO: Root relative which is problematic
-//const google = require('../helpers/googleVisionAPI.js');
+const google = require('../helpers/googleVisionAPI.js');
 
 //Hitting file limits on size, increased to 50mb
 app.use(bodyParser.json({limit: "50mb"}));
@@ -23,8 +23,7 @@ app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:500
 
 app.post('/upload', upload.single('image'),(req, res) => {
   // Send the vision API back
-  console.log("Within server.js:", req);
-  //google.visionAPI();
+  res.send(google.visionAPI(req.file.path));
 });
 
 app.listen(8080);

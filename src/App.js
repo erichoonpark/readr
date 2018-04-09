@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Dropzone from 'react-dropzone';
-import axios from 'axios'
-
-
-
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
