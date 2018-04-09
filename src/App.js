@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Dropzone from 'react-dropzone';
-import ajax from 'superagent';
+import axios from 'axios'
+
 
 
 
@@ -15,22 +16,16 @@ class App extends Component {
   }
 
   onDrop(files) {
+    const formData = new FormData();
+    formData.append('image', files[0]);
+
     this.setState({
       files
     });
 
-    ajax.post('/upload')
-    //Pass the image to the upload route
-        .send(files)
-        .end((error, response) => {
-          console.log('FILES:' , files);
-          if (!error && response) {
-            console.log(response);
-            this.setState({ labels: response.labels });
-          } else {
-            console.log('There was an error fetching from Google Vision API', error);
-          }
-        })
+    axios.post('/upload', files[0]).then(response => {
+      console.log('FILES:' , files);
+    })
   }
 
   render() {
