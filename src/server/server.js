@@ -22,6 +22,7 @@ app.use(require('express-promise')());
 
 app.post('/upload', upload.single('image'), async (req, res) => {
   const labels = await google.visionAPI(req.file.path);
+  console.log(labels);
   res.json(labels);
 });
 

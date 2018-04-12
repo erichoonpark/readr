@@ -34,16 +34,19 @@ class App extends Component {
           <h1 className="App-title">Welcome to Readr</h1>
         </header>
         <Dropzone onDrop={this.onDrop.bind(this)} name="image">
-              <p>Drop your image here!</p>
+              <p>Hurry, drop your image here!</p>
         </Dropzone>
         <aside>
           <h2>What I think this is...</h2>
           <ul>
             {
-              this.state.labels.map(f => <li key={f}>{f}</li>)
+              this.state.labels.map(f => <ul key={f}>{f}</ul>)
             }
           </ul>
         </aside>
+        <style>
+          @import url('https://fonts.googleapis.com/css?family=Roboto');
+        </style>
       </div>
     );
   }

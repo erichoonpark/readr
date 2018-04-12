@@ -5,7 +5,6 @@ const client = new vision.ImageAnnotatorClient();
 
 exports.visionAPI = async (filePath) => {
   const results = await client.webDetection(filePath);
-  console.log("Google Vision API:" , results);
   const labels = results[0].webDetection.webEntities.map(element => element.description)
-  return labels
+  return labels.slice(0,3)
 };
