@@ -4,7 +4,8 @@ const vision = require('@google-cloud/vision');
 const client = new vision.ImageAnnotatorClient();
 
 exports.visionAPI = async (filePath) => {
-  const results = await client.labelDetection(filePath)
-  const labels = results[0].labelAnnotations.map(element => element.description)
+  const results = await client.webDetection(filePath);
+  console.log("Google Vision API:" , results);
+  const labels = results[0].webDetection.webEntities.map(element => element.description)
   return labels
 };
