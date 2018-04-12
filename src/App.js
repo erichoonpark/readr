@@ -36,7 +36,7 @@ class App extends Component {
               <p>Drop your image here!</p>
         </Dropzone>
         <aside>
-          <h2>Dropped files</h2>
+          <h2>What I think this is...</h2>
           <ul>
             {
               this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
