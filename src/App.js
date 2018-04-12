@@ -21,7 +21,8 @@ class App extends Component {
     });
 
     axios.post('/upload', formData).then(response => {
-      console.log('Response:' , response);
+      console.log('Response:' , response.data);
+      this.setState({labels:response.data});
     })
   }
 
@@ -39,7 +40,7 @@ class App extends Component {
           <h2>What I think this is...</h2>
           <ul>
             {
-              this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+              this.state.labels.map(f => <li key={f}>{f}</li>)
             }
           </ul>
         </aside>
