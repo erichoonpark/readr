@@ -11,8 +11,9 @@ body {
 
 ul {
   display: block;
+  width: 70%;
   height: 40px;
-  margin: 7px 0 7px 0;
+  margin: auto;
   background: #A4F1C8;
   font-size: 24px;
   color: #333;

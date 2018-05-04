@@ -5,14 +5,17 @@ const app = express();
 const multer  = require('multer');
 const upload = multer({ dest: './uploads' });
 const storage = multer.diskStorage({
+    // Save images to the uploads folder
     destination: function (req, file, cb) {
         cb(null, './uploads')
     },
+    // Naming convention for new uploaded files
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname)
     }
 })
-//TODO: Root relative which is problematic
+
+// Google middleware to access Vision API
 const google = require('../helpers/googleVisionAPI.js');
 
 //Hitting file limits on size, increased to 50mb

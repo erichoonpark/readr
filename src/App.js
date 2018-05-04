@@ -12,16 +12,12 @@ class App extends Component {
     }
   }
 
+  //Upon dropping a file into the app
   onDrop(files) {
     const formData = new FormData();
     formData.append('image', files[0]);
-
-    this.setState({
-      files
-    });
-
+    //Post data to the /upload route
     axios.post('/upload', formData).then(response => {
-      console.log('Response:' , response.data);
       this.setState({labels:response.data});
     })
   }
