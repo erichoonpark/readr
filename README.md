@@ -53,4 +53,4 @@ Start React:
 ```sh
 npm start
 ```
-After running these scripts, open you page to your localhost:8080. Please email any questions to erichoonpark@gmail.com
+After running these scripts, open you page to your localhost:8080.
